@@ -342,6 +342,8 @@ footer a:hover{color:var(--lime)}
  .bento-card{min-height:200px}
  .bento-card:nth-child(1){grid-row:auto}
  .bento-card:nth-child(4){grid-column:auto}
+ /* ИСПРАВЛЕНО: Цифра 01 больше не наезжает на текст */
+ .bento-card .metric{position:static;margin-top:30px;font-size:48px}
  .pricing-grid{grid-template-columns:1fr;gap:26px}
  .price-card,.price-card:nth-child(1),.price-card:nth-child(2),.price-card:nth-child(3){margin:0;min-height:auto;transform:none!important}
  .price-card.hovering{box-shadow:8px 12px 0 -2px var(--ink)}
@@ -598,7 +600,7 @@ footer a:hover{color:var(--lime)}
         <div class="field-wrap"><input class="field" id="f-phone" name="Телефон / Telegram" required placeholder=" "><label class="fl-label" for="f-phone">Телефон / Telegram</label></div>
         <div class="field-wrap"><input class="field" id="f-company" name="Компания" placeholder=" "><label class="fl-label" for="f-company">Компания</label></div>
         <div class="field-wrap"><input class="field" id="f-email" name="_replyto" type="email" placeholder=" "><label class="fl-label" for="f-email">Email</label></div>
-        <div class="field-wrap full"><textarea class="field" id="f-msg" name="Сообщение" placeholder=" "></textarea><label class="fl-label" for="f-msg">Что нужно сделать?</label></div>
+        <div class="field-wrap full"><textarea class="field" id="f-msg" name="Сообщение" placeholder=" "><label class="fl-label" for="f-msg">Что нужно сделать?</label></div>
         <button class="submit magnetic" type="submit"><span id="submitLabel">ОТПРАВИТЬ ЗАПРОС ↗</span></button>
       </form>
       <div class="form-success" id="formSuccess"><i></i> Спасибо! Мы получили заявку и свяжемся с вами.</div>
