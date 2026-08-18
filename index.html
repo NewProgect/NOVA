@@ -52,6 +52,18 @@ img{max-width:100%;display:block}
 ::selection{background:var(--lime);color:var(--ink)}
 .mono{font-family:"Space Mono",monospace}
 
+/* ============ SVG ICONS ============ */
+.svg-ico { display: inline-block; vertical-align: middle; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.nav-cta .svg-ico { width: 14px; height: 14px; margin-left: 5px; margin-bottom: -2px; }
+.circle-link .svg-ico { width: 22px; height: 22px; margin-top: 6px; }
+.service-arrow .svg-ico { width: 18px; height: 18px; }
+.price-cta .svg-ico { width: 14px; height: 14px; margin-left: 5px; margin-bottom: -2px; }
+.cta-direct a .svg-ico { width: 12px; height: 12px; margin-left: 4px; margin-bottom: -1px; }
+.submit .svg-ico { width: 14px; height: 14px; margin-left: 5px; margin-bottom: -2px; }
+.to-top .svg-ico { width: 20px; height: 20px; }
+footer a .svg-ico { width: 12px; height: 12px; margin-left: 4px; margin-bottom: -1px; }
+.marquee b .svg-ico-star { display: inline-block; width: 12px; height: 12px; vertical-align: middle; fill: currentColor; margin: 0 10px; }
+
 /* ============ PRELOADER ============ */
 .preloader{
   position:fixed;inset:0;background:var(--ink);z-index:10000;
@@ -95,7 +107,7 @@ header.scrolled{padding:14px 0;background:rgba(255,255,255,.82);backdrop-filter:
 .menu a i{font-family:"Space Mono";font-style:normal;font-size:12px;color:var(--blue);margin-right:5px}
 .menu a:after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--ink);transition:width .3s var(--ease)}
 .menu a:hover:after{width:100%}
-.nav-cta{justify-self:end;position:relative;overflow:hidden;border:1px solid var(--ink);padding:11px 18px;border-radius:100px;font-size:13px;font-weight:700;letter-spacing:.03em;text-transform:uppercase}
+.nav-cta{justify-self:end;position:relative;overflow:hidden;border:1px solid var(--ink);padding:11px 18px;border-radius:100px;font-size:13px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;display:inline-flex;align-items:center}
 .nav-cta span{position:relative;z-index:2}
 .nav-cta:before{content:"";position:absolute;inset:0;background:var(--ink);transform:translateY(101%);transition:transform .35s var(--ease);z-index:1}
 .nav-cta:hover:before{transform:translateY(0)}
@@ -122,7 +134,7 @@ h1 .blue{color:var(--blue)}
 .hero-line{position:relative;z-index:2;border-top:1px solid var(--ink);padding:14px 0;display:flex;justify-content:space-between;font-family:"Space Mono";font-size:13px;text-transform:uppercase;letter-spacing:.08em;margin-top:60px}
 .marquee{position:relative;z-index:2;background:var(--lime);border-top:1px solid var(--ink);overflow:hidden;white-space:nowrap}
 .marquee-track{display:inline-flex;gap:34px;animation:scroll 26s linear infinite;padding:11px 0;font-family:"Space Grotesk";font-weight:700;font-size:15px}
-.marquee b{color:var(--blue);font-weight:400}
+.marquee b{color:var(--blue);font-weight:400;display:inline-flex;align-items:center}
 @keyframes scroll{to{transform:translateX(-50%)}}
 
 /* ============ TRUST BAR ============ */
@@ -206,7 +218,7 @@ h1 .blue{color:var(--blue)}
 .price-list li:before{content:"";position:absolute;left:0;top:7px;width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.32}
 .price-card:nth-child(2) .price-list li:before{background:var(--lime);opacity:1}
 .price-cta{display:inline-flex;align-items:center;gap:8px;margin-top:34px;border:1px solid currentColor;padding:15px 22px;font-size:14px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;transition:.25s;align-self:flex-start;position:relative;overflow:hidden}
-.price-cta span{position:relative;z-index:2;transition:color .3s}
+.price-cta span{position:relative;z-index:2;transition:color .3s;display:inline-flex;align-items:center;gap:8px}
 .price-cta:before{content:"";position:absolute;inset:0;background:var(--ink);transform:translateY(101%);transition:transform .3s var(--ease)}
 .price-card:nth-child(1) .price-cta:hover:before{transform:translateY(0)}
 .price-card:nth-child(1) .price-cta:hover span{color:var(--paper)}
@@ -280,7 +292,7 @@ h1 .blue{color:var(--blue)}
 .field:focus ~ .fl-label,.field:not(:placeholder-shown) ~ .fl-label{top:-2px;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
 textarea.field{grid-column:1/-1;resize:none;min-height:96px}
 .submit{grid-column:1/-1;position:relative;overflow:hidden;border:1px solid var(--ink);background:var(--ink);color:white;padding:18px;border-radius:0;font-size:14px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;margin-top:12px}
-.submit span{position:relative;z-index:2}
+.submit span{position:relative;z-index:2;display:inline-flex;align-items:center;gap:8px}
 .submit:before{content:"";position:absolute;inset:0;background:var(--blue);transform:translateX(-101%);transition:transform .35s var(--ease)}
 .submit:hover:before{transform:translateX(0)}
 .form-success{display:none;font-family:"Space Mono";font-size:15px;padding:20px 0;align-items:center;gap:10px}
@@ -297,7 +309,7 @@ footer{background:var(--ink);color:white;padding:75px 0 28px}
 .footer-brand{font-family:"Space Grotesk";font-size:44px;letter-spacing:-.05em;font-weight:700}
 .footer-brand span{color:var(--lime)}
 footer h4{font-family:"Space Mono";font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:#77776f;margin:0 0 16px;font-weight:400}
-footer a,footer p{display:block;color:#aaa99f;font-size:14px;margin:8px 0}
+footer a,footer p{display:flex;align-items:center;color:#aaa99f;font-size:14px;margin:8px 0;gap:4px}
 footer a{transition:color .2s}
 footer a:hover{color:var(--lime)}
 .footer-bottom{border-top:1px solid #2a2a25;margin-top:60px;padding-top:18px;color:#66665f;font-family:"Space Mono";font-size:12px;display:flex;justify-content:space-between}
@@ -316,7 +328,7 @@ footer a:hover{color:var(--lime)}
 }
 
 /* ============ BACK TO TOP ============ */
-.to-top{position:fixed;right:26px;bottom:26px;width:52px;height:52px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-size:18px;z-index:70;opacity:0;pointer-events:none;transform:translateY(10px);transition:.3s var(--ease);border:0;cursor:pointer}
+.to-top{position:fixed;right:26px;bottom:26px;width:52px;height:52px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;z-index:70;opacity:0;pointer-events:none;transform:translateY(10px);transition:.3s var(--ease);border:0;cursor:pointer}
 .to-top.show{opacity:1;pointer-events:auto;transform:none}
 .to-top:hover{background:var(--blue)}
 
@@ -329,7 +341,7 @@ footer a:hover{color:var(--lime)}
   .marquee-track{animation:none}
 }
 
-/* ============ MOBILE ADAPTIVE (ОПТИМИЗИРОВАНО ПОД ПК-ВИД) ============ */
+/* ============ MOBILE ADAPTIVE ============ */
 @media(max-width:900px){
  .wrap{width:min(100% - 36px,var(--max))}
  .nav{display:flex;justify-content:space-between;align-items:center;gap:12px;overflow:hidden;max-width:100%}
@@ -418,7 +430,7 @@ footer a:hover{color:var(--lime)}
     <div class="menu">
       <a href="#services"><i>01</i>Услуги</a><a href="#pricing"><i>02</i>Пакеты</a><a href="#process"><i>03</i>Подход</a><a href="#faq"><i>04</i>Вопросы</a><a href="#contacts"><i>05</i>Контакты</a>
     </div>
-    <a class="nav-cta magnetic" href="#contacts"><span class="cta-txt">Запустить проект</span> &#x2197;&#xFE0E;</a>
+    <a class="nav-cta magnetic" href="#contacts"><span class="cta-txt">Запустить проект</span> <svg class="svg-ico" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
   </div>
 </header>
 
@@ -434,11 +446,11 @@ footer a:hover{color:var(--lime)}
     </h1>
     <div class="hero-sub reveal">
       <p>Делаем сайты и digital-продукты, которые помогают компаниям выглядеть ярче, работать быстрее и продавать больше.</p>
-      <a class="circle-link magnetic" href="#contacts">НАЧАТЬ<br>ПРОЕКТ<br>&#x2198;&#xFE0E;</a>
+      <a class="circle-link magnetic" href="#contacts">НАЧАТЬ<br>ПРОЕКТ<br><svg class="svg-ico" viewBox="0 0 24 24"><line x1="7" y1="7" x2="17" y2="17"></line><polyline points="17 7 17 17 7 17"></polyline></svg></a>
     </div>
   </div>
   <div class="wrap hero-line reveal"><span>Стратегия / Дизайн / Разработка / Рост</span><span>01 — 08</span></div>
-  <div class="marquee"><div class="marquee-track">ВЕБ-РАЗРАБОТКА <b>&#x2733;&#xFE0E;</b> СТРАТЕГИЯ <b>&#x2733;&#xFE0E;</b> ЦИФРОВЫЕ ПРОДУКТЫ <b>&#x2733;&#xFE0E;</b> РАЗВИТИЕ БРЕНДА <b>&#x2733;&#xFE0E;</b> ВЕБ-РАЗРАБОТКА <b>&#x2733;&#xFE0E;</b> СТРАТЕГИЯ <b>&#x2733;&#xFE0E;</b> ЦИФРОВЫЕ ПРОДУКТЫ <b>&#x2733;&#xFE0E;</b> РАЗВИТИЕ БРЕНДА <b>&#x2733;&#xFE0E;</b></div></div>
+  <div class="marquee"><div class="marquee-track">ВЕБ-РАЗРАБОТКА <b><svg class="svg-ico-star" viewBox="0 0 24 24"><path d="M12 2L13.5 10.5L22 12L13.5 13.5L12 22L10.5 13.5L2 12L10.5 10.5L12 2Z"/></svg></b> СТРАТЕГИЯ <b><svg class="svg-ico-star" viewBox="0 0 24 24"><path d="M12 2L13.5 10.5L22 12L13.5 13.5L12 22L10.5 13.5L2 12L10.5 10.5L12 2Z"/></svg></b> ЦИФРОВЫЕ ПРОДУКТЫ <b><svg class="svg-ico-star" viewBox="0 0 24 24"><path d="M12 2L13.5 10.5L22 12L13.5 13.5L12 22L10.5 13.5L2 12L10.5 10.5L12 2Z"/></svg></b> РАЗВИТИЕ БРЕНДА <b><svg class="svg-ico-star" viewBox="0 0 24 24"><path d="M12 2L13.5 10.5L22 12L13.5 13.5L12 22L10.5 13.5L2 12L10.5 10.5L12 2Z"/></svg></b> ВЕБ-РАЗРАБОТКА <b><svg class="svg-ico-star" viewBox="0 0 24 24"><path d="M12 2L13.5 10.5L22 12L13.5 13.5L12 22L10.5 13.5L2 12L10.5 10.5L12 2Z"/></svg></b> СТРАТЕГИЯ <b><svg class="svg-ico-star" viewBox="0 0 24 24"><path d="M12 2L13.5 10.5L22 12L13.5 13.5L12 22L10.5 13.5L2 12L10.5 10.5L12 2Z"/></svg></b> ЦИФРОВЫЕ ПРОДУКТЫ <b><svg class="svg-ico-star" viewBox="0 0 24 24"><path d="M12 2L13.5 10.5L22 12L13.5 13.5L12 22L10.5 13.5L2 12L10.5 10.5L12 2Z"/></svg></b> РАЗВИТИЕ БРЕНДА <b><svg class="svg-ico-star" viewBox="0 0 24 24"><path d="M12 2L13.5 10.5L22 12L13.5 13.5L12 22L10.5 13.5L2 12L10.5 10.5L12 2Z"/></svg></b></div></div>
 </section>
 
 <section class="trustbar">
@@ -467,10 +479,10 @@ footer a:hover{color:var(--lime)}
   <div class="wrap">
     <div class="section-top reveal"><h2>Что делаем</h2><p>Это не отдельные разрозненные услуги, а один понятный процесс — от идеи до результата, который можно измерить.</p></div>
     <div>
-      <article class="service-row reveal"><span class="service-num mono">01</span><h3>Стратегия</h3><p>Изучаем ваш бизнес, конкурентов и клиентов, находим сильную идею и составляем понятный план роста.</p><span class="service-arrow">&#x2197;&#xFE0E;</span></article>
-      <article class="service-row reveal"><span class="service-num mono">02</span><h3>Сайты и сервисы</h3><p>Проектируем удобный сайт или онлайн-сервис, продумываем дизайн и подключаем нужные технические решения.</p><span class="service-arrow">&#x2197;&#xFE0E;</span></article>
-      <article class="service-row reveal"><span class="service-num mono">03</span><h3>Стиль бренда</h3><p>Создаём узнаваемый образ компании: логотип, цвета, анимацию — всё, что помогает вас запомнить.</p><span class="service-arrow">&#x2197;&#xFE0E;</span></article>
-      <article class="service-row reveal"><span class="service-num mono">04</span><h3>Продвижение</h3><p>Настраиваем рекламу и поисковую оптимизацию, следим за результатами и постоянно улучшаем показатели.</p><span class="service-arrow">&#x2197;&#xFE0E;</span></article>
+      <article class="service-row reveal"><span class="service-num mono">01</span><h3>Стратегия</h3><p>Изучаем ваш бизнес, конкурентов и клиентов, находим сильную идею и составляем понятный план роста.</p><span class="service-arrow"><svg class="svg-ico" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></article>
+      <article class="service-row reveal"><span class="service-num mono">02</span><h3>Сайты и сервисы</h3><p>Проектируем удобный сайт или онлайн-сервис, продумываем дизайн и подключаем нужные технические решения.</p><span class="service-arrow"><svg class="svg-ico" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></article>
+      <article class="service-row reveal"><span class="service-num mono">03</span><h3>Стиль бренда</h3><p>Создаём узнаваемый образ компании: логотип, цвета, анимацию — всё, что помогает вас запомнить.</p><span class="service-arrow"><svg class="svg-ico" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></article>
+      <article class="service-row reveal"><span class="service-num mono">04</span><h3>Продвижение</h3><p>Настраиваем рекламу и поисковую оптимизацию, следим за результатами и постоянно улучшаем показатели.</p><span class="service-arrow"><svg class="svg-ico" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></article>
     </div>
   </div>
 </section>
@@ -506,7 +518,7 @@ footer a:hover{color:var(--lime)}
           <li>Сборка и запуск сайта</li>
           <li>2 недели поддержки после запуска</li>
         </ul>
-        <a href="#contacts" class="price-cta magnetic"><span>Выбрать Старт &#x2197;&#xFE0E;</span></a>
+        <a href="#contacts" class="price-cta magnetic"><span>Выбрать Старт <svg class="svg-ico" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></a>
         <div class="price-bg-num">01</div>
       </article>
 
@@ -524,7 +536,7 @@ footer a:hover{color:var(--lime)}
           <li>Базовая настройка поиска и рекламы</li>
           <li>1 месяц тестов и улучшений после запуска</li>
         </ul>
-        <a href="#contacts" class="price-cta magnetic"><span>Выбрать Бизнес &#x2197;&#xFE0E;</span></a>
+        <a href="#contacts" class="price-cta magnetic"><span>Выбрать Бизнес <svg class="svg-ico" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></a>
         <div class="price-bg-num">02</div>
       </article>
 
@@ -542,7 +554,7 @@ footer a:hover{color:var(--lime)}
           <li>3 месяца продвижения и рекламы</li>
           <li>Отдельная команда, закреплённая за проектом</li>
         </ul>
-        <a href="#contacts" class="price-cta magnetic"><span>Выбрать Под ключ &#x2197;&#xFE0E;</span></a>
+        <a href="#contacts" class="price-cta magnetic"><span>Выбрать Под ключ <svg class="svg-ico" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></a>
         <div class="price-bg-num">03</div>
       </article>
     </div>
@@ -612,8 +624,8 @@ footer a:hover{color:var(--lime)}
     <div class="reveal">
       <p class="cta-copy">Расскажите, что хотите изменить, запустить или вырастить. Вернёмся с первым взглядом на задачу в течение рабочего дня.</p>
       <div class="cta-direct">
-        <a href="https://t.me/w_chappik" target="_blank" rel="noopener">Написать в Telegram &#x2197;&#xFE0E;</a>
-        <a href="mailto:ssinanss08@gmail.com">Написать на почту &#x2197;&#xFE0E;</a>
+        <a href="https://t.me/w_chappik" target="_blank" rel="noopener">Написать в Telegram <svg class="svg-ico" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
+        <a href="mailto:ssinanss08@gmail.com">Написать на почту <svg class="svg-ico" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
       </div>
       <form class="form" id="ctaForm" action="https://formspree.io/f/xyegpnww" method="POST">
         <input type="hidden" name="_subject" value="Новая заявка с сайта NOVA">
@@ -622,7 +634,7 @@ footer a:hover{color:var(--lime)}
         <div class="field-wrap"><input class="field" id="f-company" name="Компания" placeholder=" "><label class="fl-label" for="f-company">Компания</label></div>
         <div class="field-wrap"><input class="field" id="f-email" name="_replyto" type="email" placeholder=" "><label class="fl-label" for="f-email">Email</label></div>
         <div class="field-wrap full"><textarea class="field" id="f-msg" name="Сообщение" placeholder=" "></textarea><label class="fl-label" for="f-msg">Что нужно сделать?</label></div>
-        <button class="submit magnetic" type="submit"><span id="submitLabel">ОТПРАВИТЬ ЗАПРОС &#x2197;&#xFE0E;</span></button>
+        <button class="submit magnetic" type="submit"><span id="submitLabel">ОТПРАВИТЬ ЗАПРОС <svg class="svg-ico" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span></button>
       </form>
       <div class="form-success" id="formSuccess"><i></i> Спасибо! Мы получили заявку и свяжемся с вами.</div>
       <div class="form-error" id="formError">Не удалось отправить. Попробуйте ещё раз или напишите на <a href="mailto:ssinanss08@gmail.com">ssinanss08@gmail.com</a>.</div>
@@ -637,14 +649,14 @@ footer a:hover{color:var(--lime)}
       <div><div class="footer-brand">N<span>O</span>VA</div><p>Независимая digital-студия<br>Стратегия · Дизайн · Технологии</p></div>
       <div><h4>Навигация</h4><a href="#services">Услуги</a><a href="#pricing">Пакеты</a><a href="#process">Подход</a><a href="#faq">Вопросы</a><a href="#contacts">Контакты</a></div>
       <div><h4>Контакты</h4><a href="mailto:ssinanss08@gmail.com">ssinanss08@gmail.com</a><a href="tel:+79268556065">+7 926 855 60 65</a><p>Москва / Remote</p></div>
-      <div><h4>Соцсети</h4><a href="https://t.me/w_chappik" target="_blank" rel="noopener">Telegram ↗</a><a href="#">Behance ↗</a><a href="#">Dribbble ↗</a></div>
+      <div><h4>Соцсети</h4><a href="https://t.me/w_chappik" target="_blank" rel="noopener">Telegram <svg class="svg-ico" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a><a href="#">Behance <svg class="svg-ico" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a><a href="#">Dribbble <svg class="svg-ico" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></div>
     </div>
     <p id="privacy" style="max-width:640px;font-size:12px;line-height:1.7;color:#77776f;margin-top:34px">Политика конфиденциальности: данные, оставленные в форме на сайте (имя, телефон, email, сообщение), используются только для связи по вашей заявке и не передаются третьим лицам.</p>
     <div class="footer-bottom"><span>© 2026 NOVA Studio</span><span>Делаем осознанно, а не по шаблону.</span></div>
   </div>
 </footer>
 
-<button class="to-top" id="toTop" aria-label="Наверх">&#x2191;&#xFE0E;</button>
+<button class="to-top" id="toTop" aria-label="Наверх"><svg class="svg-ico" viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg></button>
 
 <div class="cookie-bar" id="cookieBar">
   <p>Мы используем файлы cookie, чтобы сайт работал корректно и мы понимали, что стоит улучшить. Подробнее — в <a href="#privacy">политике конфиденциальности</a>.</p>
@@ -720,9 +732,7 @@ window.addEventListener('load', () => {
   
   const tl = gsap.timeline();
   
-  // 1. Анимация логотипа в прелоадере
   tl.to('#preloaderLogo', { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' })
-  // 2. Анимация счетчика и полосы
   .to({val: 0}, {
     val: 100,
     duration: 1.2,
@@ -733,7 +743,6 @@ window.addEventListener('load', () => {
       bar.style.width = v + '%';
     }
   }, "-=0.2")
-  // 3. Плавное скрытие прелоадера
   .to('#preloader', {
     y: "-100%",
     duration: 0.8,
@@ -744,7 +753,6 @@ window.addEventListener('load', () => {
       preloader.style.display = 'none';
     }
   })
-  // 4. Анимация главного заголовка
   .to('#heroTitle .line span', {
     y:0, duration:1.1, stagger:.12, ease:'power4.out'
   }, "-=0.5");
@@ -831,7 +839,7 @@ ctaForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   formError.classList.remove('show');
   submitBtn.disabled = true;
-  const originalText = submitLabel.textContent;
+  const originalText = submitLabel.innerHTML;
   submitLabel.textContent = 'ОТПРАВЛЯЕМ…';
 
   try {
@@ -849,7 +857,7 @@ ctaForm.addEventListener('submit', async (e) => {
   } catch (err) {
     formError.classList.add('show');
     submitBtn.disabled = false;
-    submitLabel.textContent = originalText;
+    submitLabel.innerHTML = originalText;
   }
 });
 
