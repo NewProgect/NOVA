@@ -44,12 +44,30 @@ body{
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
+body.loading{overflow:hidden;height:100vh}
 a{text-decoration:none;color:inherit}
 button,input,textarea{font:inherit;color:inherit}
 img{max-width:100%;display:block}
 .wrap{width:min(var(--max),calc(100% - 72px));margin:auto}
 ::selection{background:var(--lime);color:var(--ink)}
 .mono{font-family:"Space Mono",monospace}
+
+/* ============ PRELOADER ============ */
+.preloader{
+  position:fixed;inset:0;background:var(--ink);z-index:10000;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:24px;
+}
+.preloader-content{display:flex;flex-direction:column;align-items:center;gap:20px}
+.preloader-logo{
+  font-family:"Space Grotesk";font-size:clamp(40px, 8vw, 60px);
+  font-weight:700;color:var(--paper);letter-spacing:-.06em;
+  opacity:0;transform:translateY(20px);
+}
+.preloader-logo span{color:var(--blue)}
+.preloader-bar-wrap{width:160px;height:2px;background:rgba(255,255,255,.12);overflow:hidden}
+.preloader-bar{width:0%;height:100%;background:var(--lime)}
+.preloader-text{font-family:"Space Mono";font-size:11px;color:#8b8b82;letter-spacing:.1em;text-transform:uppercase}
 
 /* ============ CUSTOM CURSOR ============ */
 .cursor-dot,.cursor-ring{
@@ -160,8 +178,6 @@ h1 .blue{color:var(--blue)}
 .bento-card:nth-child(4) h3{font-size:26px;max-width:none}
 .bento-card .shape{position:absolute;border-radius:50%;width:280px;height:280px;right:-80px;bottom:-110px;background:rgba(255,255,255,.16);transition:transform .6s var(--ease)}
 .bento-card:hover .shape{transform:scale(1.5) rotate(25deg)}
-.metric{position:absolute;bottom:24px;left:28px;font-family:"Space Grotesk";font-size:60px;letter-spacing:-.07em;font-weight:600}
-.metric small{display:block;font-family:"Space Mono";font-size:12px;letter-spacing:.08em;color:inherit;opacity:.65;text-transform:uppercase}
 
 /* ============ PRICING ============ */
 .pricing{padding:150px 0 160px;background:var(--paper);position:relative}
@@ -316,7 +332,6 @@ footer a:hover{color:var(--lime)}
 /* ============ MOBILE ADAPTIVE (ОПТИМИЗИРОВАНО ПОД ПК-ВИД) ============ */
 @media(max-width:900px){
  .wrap{width:min(100% - 36px,var(--max))}
- /* ИСПРАВЛЕНО: Гибкая лента меню, которую можно свайпать */
  .nav{display:flex;justify-content:space-between;align-items:center;gap:12px;overflow:hidden;max-width:100%}
  .brand{flex-shrink:0}
  .menu{display:flex;gap:20px;overflow-x:auto;white-space:nowrap;scrollbar-width:none;flex:1;min-width:0;justify-content:flex-start;-webkit-overflow-scrolling:touch;touch-action:pan-x}
@@ -332,12 +347,10 @@ footer a:hover{color:var(--lime)}
  .intro-grid{grid-template-columns:1fr;gap:26px}
  .intro-bottom{grid-template-columns:1fr;gap:24px}
  .big-number{font-size:84px}
- /* Текст в услугах не исчезает */
  .service-row{grid-template-columns:40px 1fr 40px;gap:15px;padding:25px 0}
  .service-row p{display:block;grid-column:1/-1;padding-left:40px;margin-top:10px}
  .service-row h3{font-size:28px}
  .service-arrow{width:36px;height:36px;font-size:15px}
- /* Bento grid выстраивается в колонку, сохраняя дизайн */
  .bento{grid-template-columns:1fr;grid-template-rows:auto;gap:12px}
  .bento-card{min-height:200px}
  .bento-card:nth-child(1){grid-row:auto}
@@ -358,7 +371,6 @@ footer a:hover{color:var(--lime)}
 }
 @media(max-width:560px){
  .wrap{width:calc(100% - 28px)}
- /* ИСПРАВЛЕНО: Превращаем длинную кнопку в иконку, чтобы влезало все меню */
  .nav-cta .cta-txt{display:none}
  .nav-cta{padding:9px 11px;font-size:14px;line-height:1}
  .hero{min-height:auto;padding-bottom:0}
@@ -384,14 +396,25 @@ footer a:hover{color:var(--lime)}
 }
 </style>
 </head>
-<body>
+<body class="loading">
+
+<!-- PRELOADER -->
+<div class="preloader" id="preloader">
+  <div class="preloader-content">
+    <div class="preloader-logo" id="preloaderLogo">N<span>O</span>VA</div>
+    <div class="preloader-bar-wrap">
+      <div class="preloader-bar" id="preloaderBar"></div>
+    </div>
+    <div class="preloader-text"><span id="preloaderCount">0</span>%</div>
+  </div>
+</div>
 
 <div class="cursor-dot" id="cdot"></div>
 <div class="cursor-ring" id="cring"></div>
 
 <header id="siteHeader">
   <div class="wrap nav">
-    <a class="brand" href="#">N<span>/</span>VA</a>
+    <a class="brand" href="#">N<span>O</span>VA</a>
     <div class="menu">
       <a href="#services"><i>01</i>Услуги</a><a href="#pricing"><i>02</i>Пакеты</a><a href="#process"><i>03</i>Подход</a><a href="#faq"><i>04</i>Вопросы</a><a href="#contacts"><i>05</i>Контакты</a>
     </div>
@@ -456,7 +479,6 @@ footer a:hover{color:var(--lime)}
   <div class="wrap">
     <div class="section-top reveal"><h2>Почему мы</h2><p>Пять принципов, которые помогают держать качество на каждом проекте.</p></div>
     <div class="bento">
-      <!-- Убрана метрика с цифрой 01 -->
       <article class="bento-card tilt reveal"><h3>Сначала<br>смысл.<br>Потом<br>форма.</h3><p>Мы не просто делаем красиво. Сначала находим, в чём ваша сильная сторона, а потом показываем её так, чтобы это было заметно.</p><div class="shape"></div></article>
       <article class="bento-card reveal"><h3>01</h3><p>Один постоянный опытный состав команды — не нужно искать пять разных подрядчиков.</p></article>
       <article class="bento-card reveal"><h3>02</h3><p>Дизайн строится вокруг поведения людей, а не вокруг модных приёмов.</p></article>
@@ -612,7 +634,7 @@ footer a:hover{color:var(--lime)}
 <footer>
   <div class="wrap">
     <div class="footer-top">
-      <div><div class="footer-brand">N<span>/</span>VA</div><p>Независимая digital-студия<br>Стратегия · Дизайн · Технологии</p></div>
+      <div><div class="footer-brand">N<span>O</span>VA</div><p>Независимая digital-студия<br>Стратегия · Дизайн · Технологии</p></div>
       <div><h4>Навигация</h4><a href="#services">Услуги</a><a href="#pricing">Пакеты</a><a href="#process">Подход</a><a href="#faq">Вопросы</a><a href="#contacts">Контакты</a></div>
       <div><h4>Контакты</h4><a href="mailto:ssinanss08@gmail.com">ssinanss08@gmail.com</a><a href="tel:+79268556065">+7 926 855 60 65</a><p>Москва / Remote</p></div>
       <div><h4>Соцсети</h4><a href="https://t.me/w_chappik" target="_blank" rel="noopener">Telegram ↗</a><a href="#">Behance ↗</a><a href="#">Dribbble ↗</a></div>
@@ -690,10 +712,42 @@ if(!TOUCH){
 document.querySelectorAll('#heroTitle .line span').forEach(s=>{
   s.style.transform='translateY(115%)';
 });
-window.addEventListener('load',()=>{
-  gsap.to('#heroTitle .line span',{
-    y:0, duration:1.1, stagger:.12, ease:'power4.out', delay:.15
-  });
+
+window.addEventListener('load', () => {
+  const preloader = document.getElementById('preloader');
+  const counter = document.getElementById('preloaderCount');
+  const bar = document.getElementById('preloaderBar');
+  
+  const tl = gsap.timeline();
+  
+  // 1. Анимация логотипа в прелоадере
+  tl.to('#preloaderLogo', { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' })
+  // 2. Анимация счетчика и полосы
+  .to({val: 0}, {
+    val: 100,
+    duration: 1.2,
+    ease: "power2.out",
+    onUpdate: function() {
+      const v = Math.round(this.targets()[0].val);
+      counter.textContent = v;
+      bar.style.width = v + '%';
+    }
+  }, "-=0.2")
+  // 3. Плавное скрытие прелоадера
+  .to('#preloader', {
+    y: "-100%",
+    duration: 0.8,
+    ease: "power4.inOut",
+    delay: 0.3,
+    onComplete: () => {
+      document.body.classList.remove('loading');
+      preloader.style.display = 'none';
+    }
+  })
+  // 4. Анимация главного заголовка
+  .to('#heroTitle .line span', {
+    y:0, duration:1.1, stagger:.12, ease:'power4.out'
+  }, "-=0.5");
 });
 
 /* ============ SCROLL REVEAL ============ */
